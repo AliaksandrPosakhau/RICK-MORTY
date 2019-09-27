@@ -5,5 +5,5 @@ Node.JS version 10.16.3LTS<br>
 Yargs version 14.0.0<br>
 
 Application can be started by command: <br>
-node app find --id=15464 -n="Rick" -s="Alive" -sp="Human" -t="Unknown" -g="Male" -l="Earth"
+node app find -id=15464 -n="Rick" -s="Alive" -sp="Human" -t="Unknown" -g="Male" -l="Earth"
 
