@@ -52,8 +52,7 @@ getDatabase(startEndpoint);
 let counter =1;
 function getDatabase(endpoint) {
     axios.get(endpoint)
-        .then(response => {
-             // sout(response.data.info.next);
+        .then(response => {            
             while (isNextLinkAvaliable(response.data)&&counter<21) {
                 sout(`received endpoint ${response.data.info.next} at step ${counter}`);
                 RESPONSE_STORAGE_ARRAY.push(response.data);
