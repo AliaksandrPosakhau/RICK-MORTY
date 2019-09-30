@@ -80,7 +80,7 @@ async function operationFind(operationsArray, dataFilePath) {
     const jsonParsedData = JSON.parse(currentData.toString());
 
     let reportArray = jsonParsedData.filter((element) => {
-        return element.name === operationsArray.name &&
+        return element.name.includes(operationsArray.name)&&
             element.id === operationsArray.id &&
             element.status === operationsArray.status &&
             element.species === operationsArray.species &&
