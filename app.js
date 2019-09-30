@@ -1,8 +1,5 @@
-const fs = require('fs');
 const yargs = require('yargs');
-const axios = require('axios');
 const operationFind = require('./OperationFind');
-
 const startEndpoint = `https://rickandmortyapi.com/api/character/`;
 
 // node app find -id=15464 -n="Rick" -s="Alive" -sp="Human" -t="Unknown" -g="Male" -l="Earth"
