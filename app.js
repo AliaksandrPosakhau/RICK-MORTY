@@ -1,13 +1,11 @@
 const fs = require('fs');
 const yargs = require('yargs');
 const axios = require('axios');
+const operationFind = require('./OperationFind');
 
 const startEndpoint = `https://rickandmortyapi.com/api/character/`;
 
-let RESPONSE_STORAGE_ARRAY =[];
-
 // node app find -id=15464 -n="Rick" -s="Alive" -sp="Human" -t="Unknown" -g="Male" -l="Earth"
-
 
 yargs.command({
     command: 'find',
@@ -44,30 +42,54 @@ yargs.command({
     }
 });
 
-sout(yargs.argv);
+const find = new operationFind(yargs.argv,startEndpoint);
+find.executeOperation();
 
-getDatabase(startEndpoint);
 
-//forming one big object to store data from all database starting from response of first endpoint
-let counter =1;
-function getDatabase(endpoint) {
-    axios.get(endpoint)
-        .then(response => {            
-            while (isNextLinkAvaliable(response.data)&&counter<21) {
-                sout(`received endpoint ${response.data.info.next} at step ${counter}`);
-                RESPONSE_STORAGE_ARRAY.push(response.data);
-                getDatabase(response.data.info.next);
-                counter++;
-            }
-        });
-}
 
-//detecting is there are a link to next resource page or not
-function isNextLinkAvaliable(response) {
-    return response.info.next.startsWith('https://rickandmortyapi.com/api/character');
-}
 
-// short java-styled function to operate console log output shorter and more convenient
-function sout(arg) {
-    console.log(arg);
-}
+
+
+
+
+
+
+// fetchDatabase(startEndpoint);
+//
+// //forming one big object to store data from all database starting from response of first endpoint
+// let counter =1;
+// function fetchDatabase(endpoint) {
+//     return new Promise((resolve,reject)=>{
+//         const hrs = axios.get(endpoint).then(response=>{
+//             RESPONSE_STORAGE_ARRAY.push(response.data);
+//             //sout(RESPONSE_STORAGE_ARRAY[0]);
+//         });
+//     });
+//
+//
+//     // axios.get(endpoint)
+//     //     .then(response => {
+//     //          // sout(response.data.info.next);
+//     //         while (isNextLinkAvaliable(response.data)&&counter<21) {
+//     //             sout(`received endpoint ${response.data.info.next} at step ${counter}`);
+//     //             RESPONSE_STORAGE_ARRAY.push(response.data);
+//     //             fetchDatabase(response.data.info.next);
+//     //             counter++;
+//     //         }
+//     //     });
+//
+// }
+//
+// // while(isNextLinkAvaliable()) {
+// //
+// // }
+//
+//
+//
+//
+//
+// //detecting is there are a link to next resource page or not
+// function isNextLinkAvaliable(response) {
+//     return response.info.next.startsWith('https://rickandmortyapi.com/api/character');
+// }
+
