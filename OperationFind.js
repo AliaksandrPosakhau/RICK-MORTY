@@ -6,10 +6,8 @@ class OperationFind {
         this.startEndpoint = startEndpoint;
     }
 
-    async executeOperation() {
-        //this.getTotalPagesAmount();
-        //await this.formPromisesArray();
-        await this.sout(this.formPromisesArray());
+    async executeOperation() {               
+        await this.sout(this.formDataArray());
     }
 
     getTotalPagesAmount() {
