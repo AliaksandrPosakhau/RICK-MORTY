@@ -20,12 +20,12 @@ class OperationFind {
             });
     }
 
-    async formPromisesArray() {
-        let promisesArray = [];
+    async formDataArray() {
+        let dataArray = [];
         for (let i = 1; i < await this.getTotalPagesAmount(); ++i) {
             axios.get(`${this.startEndpoint}?page=${i}`)
                 .then(response => {
-                    promisesArray.push(response.data);
+                    dataArray.push(response.data);
                     this.sout(promisesArray[i]);
                     return response.data;
                 });
