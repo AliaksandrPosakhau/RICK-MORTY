@@ -11,7 +11,7 @@ in this version of application only strict search operation supported. All param
 <b>UPD! </b> <br>
 Soft search operations are avaliable in alternative version of the application: appAlter.js <br>
 you can run it f.e. via command:<b> node appAlter find --status="Dead"</b><br>
-(searching all dead characters)
+(searching for all dead characters)
 
 
 
