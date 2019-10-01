@@ -14,5 +14,5 @@ you can run it f.e. via command:<b> node appAlter find --status="Dead"</b><br>
 (searching for all dead characters)
 
 
-<img src="http://www.perfectcodebook.com/wp-content/uploads/2015/11/ThePerferctCodeCoverV2-640x1024.jpg"/>
+
 
